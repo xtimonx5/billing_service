@@ -22,13 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'j&)jegw(r!b3-g0ks3@cg(kki7)!co)wcjyegd1+p+-cz7&j3j'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+def str_to_bool(value: str):
+    return value.lower() in ['1', 'true', 'yes']
+
+
+DEBUG = str_to_bool(os.getenv('DEBUG', 'true'))
 
 if DEBUG:
     ALLOWED_HOSTS = '*'
 else:
-    ALLOWED_HOSTS = []  # redefine someday
+    ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 # Application definition
 
