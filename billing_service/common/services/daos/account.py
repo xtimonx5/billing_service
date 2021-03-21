@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
-from common.models import UserAccount, AccountOperation
 from django.db.models import Prefetch
+
+from common.models import UserAccount, AccountOperation
 
 User = get_user_model()
 
@@ -16,6 +17,5 @@ class AccountDAO:
                 to_attr='history'
             )
             user_qs = user_qs.select_related('user').prefetch_related(history_prefetch)
-            return user_qs.first()
-        else:
-            return user_qs.first()
+
+        return user_qs.first()

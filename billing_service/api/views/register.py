@@ -28,5 +28,5 @@ class RegistrationView(views.APIView):
             response_data = RegistrationSerializer(user).data
 
             return response.Response(status=status.HTTP_201_CREATED, data=response_data)
-        else:
-            return response.Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)
+
+        return response.Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)

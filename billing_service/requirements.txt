@@ -1,4 +1,5 @@
 asgiref==3.3.1
+astroid==2.5.1
 attrs==20.3.0
 certifi==2020.12.5
 chardet==4.0.0
@@ -8,11 +9,17 @@ djangorestframework==3.12.2
 gunicorn==20.0.4
 idna==2.10
 iniconfig==1.1.1
+isort==5.8.0
+lazy-object-proxy==1.5.2
+mccabe==0.6.1
 oauthlib==3.1.0
 packaging==20.9
 pluggy==0.13.1
 psycopg2==2.8.6
 py==1.10.0
+pylint==2.7.2
+pylint-django==2.4.2
+pylint-plugin-utils==0.6
 pyparsing==2.4.7
 pytest==6.2.2
 pytest-django==4.1.0
@@ -21,3 +28,4 @@ requests==2.25.1
 sqlparse==0.4.1
 toml==0.10.2
 urllib3==1.26.4
+wrapt==1.12.1

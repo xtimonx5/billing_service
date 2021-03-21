@@ -37,5 +37,5 @@ class TransferView(views.APIView):
         if serializer.is_valid():
             self._perform_transfer(serializer.validated_data)
             return Response(status=status.HTTP_200_OK)
-        else:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)
+
+        return Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)
