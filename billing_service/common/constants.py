@@ -1,0 +1,2 @@
+OPERATION_TRANSFER = 'transfer'
+OPERATION_DEPOSIT = 'deposit'

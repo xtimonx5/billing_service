@@ -1,0 +1,66 @@
+version: '3.8'
+
+networks:
+  net:
+    driver: bridge
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: ./billing_service/
+    command: /opt/run.sh
+#    command: sleep 100
+    env_file:
+      - variables/dev.env
+    volumes:
+      - ./billing_service:/opt/django
+    networks:
+      - net
+    ports:
+    - '8000:8000'
+    depends_on:
+      - db
+      - redis-cache
+
+  db:
+    image: postgres:13.2
+    env_file:
+      - variables/dev.env
+    networks:
+      - net
+    ports:
+      - '15432:5432'
+    volumes:
+      - ./__volumes/pg_data:/var/lib/postgresql/data
+
+#  nginx:
+#    build:
+#      dockerfile: Dockerfile.nginx
+#      context: ./offer_wall/
+#    env_file:
+#      - variables/dev.env
+#    volumes:
+#      - ./offer_wall/static:/var/www/app-static
+#    ports:
+#      - 8888:80
+#    depends_on:
+#      - app
+#    networks:
+#      - net
+
+  redis-cache:
+      image: redis:6.0.9-alpine
+      env_file:
+        - variables/dev.env
+      expose:
+        - 6379
+      networks:
+        - net
+      command: ["redis-server", "--appendonly", "no", "--maxmemory", "256mb"]
+
+volumes:
+  app:
+    driver: local
+  db:
+    driver: local
