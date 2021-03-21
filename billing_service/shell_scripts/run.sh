@@ -10,7 +10,6 @@ python manage.py migrate
 echo "#############################################################"
 echo "# Web-server started"
 echo "#############################################################"
-# todo: add gunicorn/uwsgi
 
 gunicorn -c /opt/django/gunicorn.conf.py billing_service.wsgi:application
 

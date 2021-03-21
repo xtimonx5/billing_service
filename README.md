@@ -177,3 +177,10 @@ Response example:
   ]
 }
 ```
+
+
+### Make commands
+
+* `make test` - run tests
+* `make build` - build service
+* `make up` - launch service
