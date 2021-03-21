@@ -1,11 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.db.transaction import atomic
-from django.utils.crypto import get_random_string
+
+from oauth2_provider.models import Application
 
 from common.models import UserAccount
 from common.services.entities import CreatedUserEntity
 
-from oauth2_provider.models import Application
 
 User = get_user_model()
 

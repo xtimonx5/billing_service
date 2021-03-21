@@ -1,9 +1,9 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from .mixins import CreatedModelMixin
-
 import common.constants
+
+from .mixins import CreatedModelMixin
 
 
 class AccountOperation(CreatedModelMixin, models.Model):

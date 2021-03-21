@@ -1,11 +1,13 @@
+import random
 from datetime import datetime
 
-from oauth2_provider.models import AccessToken
 from rest_framework.reverse import reverse
 from rest_framework import status
-import random
-from .base_api_test import BaseApiTestCase
+from oauth2_provider.models import AccessToken
+
 from common.models import AccountOperation
+
+from .base_api_test import BaseApiTestCase
 
 
 class AccountTestCase(BaseApiTestCase):

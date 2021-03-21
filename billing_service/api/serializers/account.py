@@ -1,5 +1,9 @@
 from rest_framework import serializers
-from common.models import UserAccount, AccountOperation
+
+from common.models import (
+    UserAccount,
+    AccountOperation,
+)
 
 
 class AccountOperationSerializer(serializers.ModelSerializer):

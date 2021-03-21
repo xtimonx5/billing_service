@@ -3,10 +3,11 @@ from rest_framework.permissions import AllowAny
 from rest_framework import response
 from rest_framework import status
 from rest_framework.request import Request
-from api.serializers import RegistrationSerializer
 
 from common.services.usecases import UserRegistrationUseCase
 from common.services.entities import CreatedUserEntity
+
+from api.serializers import RegistrationSerializer
 
 
 class RegistrationView(views.APIView):

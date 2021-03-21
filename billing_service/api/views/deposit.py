@@ -1,13 +1,14 @@
 from django.conf import settings
 
-from oauth2_provider.contrib.rest_framework import TokenHasScope
 from rest_framework import views
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from api.serializers import DepositSerializer
+from oauth2_provider.contrib.rest_framework import TokenHasScope
 
 from common.services.usecases import DepositUseCase
+
+from api.serializers import DepositSerializer
 
 
 class DepositView(views.APIView):
@@ -15,7 +16,7 @@ class DepositView(views.APIView):
 
     required_scopes = [settings.DEPOSIT_SCOPE, ]
 
-    def _perform_deposit(self, data: dict):
+    def _perform_deposit(self, data: dict) -> None:
         DepositUseCase(user=self.request.user, amount=data['amount']).execute()
 
     def post(self, request: Request) -> Response:

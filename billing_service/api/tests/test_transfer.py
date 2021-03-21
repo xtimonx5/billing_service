@@ -1,11 +1,12 @@
 from datetime import datetime
 
+from rest_framework import status
+from rest_framework.reverse import reverse
 from oauth2_provider.models import AccessToken
 
 from common.models import UserAccount, AccountOperation
+
 from .base_api_test import BaseApiTestCase
-from rest_framework.reverse import reverse
-from rest_framework import status
 
 
 class TransferTestCase(BaseApiTestCase):

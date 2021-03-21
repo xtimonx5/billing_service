@@ -1,12 +1,14 @@
 from datetime import datetime
 
 from django.contrib.auth import get_user_model
+
 from rest_framework.reverse import reverse
 from rest_framework import status
 from oauth2_provider.models import AccessToken
 
-from common.models import UserAccount, AccountOperation
 import common.constants
+from common.models import UserAccount, AccountOperation
+
 from .base_api_test import BaseApiTestCase
 
 User = get_user_model()

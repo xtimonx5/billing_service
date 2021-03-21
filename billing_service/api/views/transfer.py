@@ -1,12 +1,14 @@
 from django.conf import settings
-from oauth2_provider.contrib.rest_framework import TokenHasScope
 
 from rest_framework import views
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.request import Request
-from api.serializers import TransferSerializer
+from oauth2_provider.contrib.rest_framework import TokenHasScope
+
 from common.services.usecases import TransferUseCase
+
+from api.serializers import TransferSerializer
 
 
 class TransferView(views.APIView):
